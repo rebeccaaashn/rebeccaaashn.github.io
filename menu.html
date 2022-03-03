@@ -1,1 +1,641 @@
-HI
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    .counter {
+      width: 15%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #d9d9d9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-family: 'Open Sans';
+      font-weight: 900;
+      color: #202020;
+      cursor: pointer;
+    }
+    .count{
+      font-size: 20px;
+      font-family: 'Open Sans';
+      font-weight: 900;
+      color: #202020;
+    }
+  </style>
+</head>
+
+<script type="text/javascript">
+  function createBill(){var index=0;
+var items = ["null", "null", "null","null"];
+var quantities = ["null", "null", "null","null"];
+var prices = ["null", "null", "null","null"];
+            
+            
+            
+var e1 = document.getElementById("item1");
+var itemselected1 = e1.options[e1.selectedIndex].value;
+if(itemselected1!="1"){
+items[index]=itemselected1;
+quantities[index] = document.getElementById("q1").value;
+prices[index] = document.getElementById("p1").value;
+index++;
+}
+      
+
+var e2 = document.getElementById("item2");
+var itemselected2 = e2.options[e2.selectedIndex].value;
+if(itemselected2!="1"){
+items[index]=itemselected2;
+quantities[index] = document.getElementById("q2").value;
+prices[index] = document.getElementById("p2").value;
+index++;
+}
+
+var e3 = document.getElementById("item3");
+var itemselected3 = e3.options[e3.selectedIndex].value;
+if(itemselected3!="1"){
+items[index]=itemselected3;
+quantities[index] = document.getElementById("q3").value;
+prices[index] = document.getElementById("p3").value;
+index++;
+}
+
+var e4 = document.getElementById("item4");
+itemselected4 = e4.options[e4.selectedIndex].value;
+if(itemselected4!="1"){
+items[index]=itemselected4;
+quantities[index] = document.getElementById("q4").value;
+prices[index] = document.getElementById("p4").value;
+index++;
+}
+
+var fTot=0;
+strt(1);
+for(var i=0;i<index;i++){
+document.write("<tr>");
+createtbl(items[i]);
+createtbl(quantities[i]);
+createtbl(prices[i]);
+var tot=parseInt(quantities[i])*parseInt(prices[i]);
+document.write("<td>"+tot+"</td>");
+fTot+=tot;
+document.write("</tr>");
+}document.write("<tr><td colspan=\"3\"><strong>TOTAL</strong></td><td>"+fTot+"</td><tr>");
+strt(2);  
+}function createtbl(x){   
+document.write("<td>"+x+"</td>");
+}
+
+function strt(n){
+if(n==1){
+document.writeln("<h1 style=\"text-align:center;\">The Bill</h1>");
+document.writeln("<table width=\"90%\" border=\"1\">");
+document.writeln("<tr><th>ITEMS</th><th>QUANTITY</th><th>PRICE</th><th></th></tr>");
+}
+  else
+  document.write("</table>");
+}
+
+function createTot(x,y){
+var tot=parseInt(x)*parseInt(y);
+document.write("<td>"+tot+"</td>");
+}
+</script>
+<title>Jazz Bar And Grill</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<style>
+body, html {height: 100%}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+.menu {display: none}
+.bgimg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("jazz bar logo.jpg");
+  min-height: 90%;
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top w3-hide-small">
+  <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+    <a href="#" class="w3-bar-item w3-button">HOME</a>
+    <a href="#menu" class="w3-bar-item w3-button">MENU</a>
+    <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+    <a href="#myMap" class="w3-bar-item w3-button">CONTACT</a>
+  </div>
+</div>
+  
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-padding">
+    <!-- <span class="w3-tag w3-xlarge">Open from 11.30am to 10pm & closed fridays 12pm-2pm</span> -->
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white w3-hide-small" style="font-size:100px"><br>JAZZ BAR AND GRILL</span>
+    <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px"><b></b></span>
+    <p><a href="#menu" class="w3-button w3-xxlarge w3-black">Let me see the menu</a></p>
+  </div>
+</header>
+
+<!-- Menu Container -->
+<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+  <div class="w3-content">
+  
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">THE MENU</h1>
+    <div class="w3-row w3-center w3-border w3-border-dark-grey">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Main course');" id="myLink">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Main course</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Appitizer');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Appitizer</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Drinks</div>
+      </a>
+    </div>
+
+    <div id="Main course" class="w3-container menu w3-padding-32 w3-white">
+      <h1><b>Grilled Fillet Steak</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$24/$48</span></h1>
+      <p class="w3-text-grey">Grass Fed Aust. Fillet Steak(180g)/ Grass Fed Aust. Fillet Steak(360g)</p>
+      <!-- <div class="counter">
+        <div class="btn" >+</div>
+        <div class="count">1</div>
+        <div class="btn">-</div>
+      </div> -->
+      <hr>
+   
+      <h1><b>Grilled Ribeye Steak</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$20/$28</span></h1>
+      <p class="w3-text-grey">Grass Fed Aust. Ribeye Steak(180g)/ Grass Fed Aust. Ribeye Steak(240g)</p>
+      <hr>
+      
+      <h1><b>Grilled Black Angus Ribeye</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$44</span></h1>
+      <p class="w3-text-grey">Grass Fed Black Angus Ribeyey Steak (240g)</p>
+      <hr>
+
+      <h1><b>Grilled Wagyu Ribeye</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$72</span></h1>
+      <p class="w3-text-grey">Grilled Wagyu Ribeye Grade 5(240g)</p>
+      <hr>
+
+      <h1><b>Sauces</b> <span class="w3-tag w3-red w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey">Black Peppercorn/ Herb Butter/ Mushroom/ BBQ</p>
+      <hr>
+
+      <h1><b>Lamb Shank</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$28</span></h1>
+      <p class="w3-text-grey">Slow cooked lamb shank/ Rosemary Cranberry/ Mint sauce</p>
+
+      <h1><b>Shoulder of Lamb</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$28</span></h1>
+      <p class="w3-text-grey">Slow cooked shoulder of lamb / Rosemary Cranberry/ Mint sauce</p>
+
+      <h1><b>Lamb Chop</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$32</span></h1>
+      <p class="w3-text-grey">Grilled Lamb Chops Mint Sauce</p>
+
+      <h1><b>Grilled Rack of Lamb</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$32</span></h1>
+      <p class="w3-text-grey">Grilled Rack of Lamb Mint Sauce</p>
+
+      <h1><b>Grilled chicken fillets</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$18/$16</span></h1>
+      <p class="w3-text-grey">Creamy Mushroom& Spinach/ Lemon cream & Garlic</p>
+
+      <h1><b>Breaded Chicken Fillets</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$17</span></h1>
+      <p class="w3-text-grey">Bread crumbs coated chicken fillets with creamy mushroom sauce</p>
+
+      <h1><b>BBQ Beef Ribs</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$26</span></h1>
+      <p class="w3-text-grey">Slow cooked beef ribs flame grilled finish with house BBQ sauce</p>
+
+      <h1><b>Flame Grilled BBQ Chicken</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$16</span></h1>
+      <p class="w3-text-grey">Flame grilled BBQ 1/2 chicken & chips</p>
+
+      <h1><b>Roasted Herb Chicken</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$16</span></h1>
+      <p class="w3-text-grey">Fresh herb roast 1/2 chicken cranberry sauce &gravy</p>
+
+      <h1><b>Grilled Barramundi Fillet</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$20/$18</span></h1>
+      <p class="w3-text-grey">Mango Salsa/ Light Lemon Butter</p>
+
+      <h1><b>Fish & chips</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$15</span></h1>
+      <p class="w3-text-grey">Hand battered fresh fish fillet, Chips, Salad & Homemade Tartar Sauce</p>
+
+      <h1><b>Grilled Whole Lobster</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$15</span></h1>
+      <p class="w3-text-grey">Flame Grilled Lobster Garlic Herb Butter</p>
+
+      <h1><b>Poached Fillet of Salmon</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$24</span></h1>
+      <p class="w3-text-grey">Poached Fillet of salmon topped with light fresh parsley cream sauce</p>
+
+      <h1><b>Grilled fillets of salmon</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$22</span></h1>
+      <p class="w3-text-grey">Grilled Norwegian fillet of salmon : light lemon butter/ Spinach Cream sauce/ mango Salsa</p>
+
+      <h1><b>Fettuccine Carbonara</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$14/$16/$18</span></h1>
+      <p class="w3-text-grey">House made ribbon egg paste: Cream sauce &Beff bacon/ cream sauce & grilled chicken/ cream sauce & Grilled prawn</p>
+
+      <h1><b>Spaghetti Aglio Olio</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$15/$10</span></h1>
+      <p class="w3-text-grey">Grilled prawns/ Parmesan</p>
+
+      <h1><b>Kids menu</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$12</span></h1>
+      <p class="w3-text-grey">(Comes with orange or blackcurrant squash) Fish&chips/ Spaghetti Aglio Olio with prawns/ Fettuccine Carbonara/ Breaded Chicken fillets/ Grilled sausage with chips & coleslaw</p>
+
+      <h1><b>Addon sauces</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$3</span></h1>
+      <p class="w3-text-grey">Rosemary & cranberry/ mint sauce/ spicy tomato salsa/ mango salsa/ lemon cream & garlic/ parsley cream/ spinach cream/ light lemon butter</p>
+      <span class="w3-right w3-tag w3-dark-grey w3-round">$4</span></h1>
+      <p class="w3-text-grey"> creamy mushroom/ caviar cream/ black pepper cream/ blue cheese/ spinach and mushroom cream</p>
+
+      <h1><b>Side order</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round">$4.5</span></h1>
+      <p class="w3-text-grey">Bucket of chips/ Mashed potatoes/ Chef's salad/ Broccoli</p>
+      <span class="w3-right w3-tag w3-dark-grey w3-round">$6.5</span></h1>
+      <p class="w3-text-grey">sauteed mushroom</p>
+      <span class="w3-right w3-tag w3-dark-grey w3-round">$3.5</span></h1>
+      <p class="w3-text-grey">green peas</p>
+
+    </div>
+
+    <div id="Appitizer" class="w3-container menu w3-padding-32 w3-white">
+      <h1><b>Oyster bar</b> <span class="w3-tag w3-grey w3-round"></span> <span class="w3-right w3-tag w3-dark-grey w3-round">$9/$16/$32</span></h1>
+      <p class="w3-text-grey">Served Au Natured Over ice with shallot vinaigrette & fresh lemon trio(3)/ Half dozen(6)/ Baker's dozen(13)</p>
+      <hr>
+   
+      <h1><b>Baked oyster</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$12/$20/$40</span></h1>
+      <p class="w3-text-grey">Rockafella/Kilpatrick/Casino Trio(3)/ Half dozen(6)/ Baker's dozen(13)</p>
+      <hr>
+      
+      <h1><b>Caesar salad</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$7/$12/$14</span></h1>
+      <p class="w3-text-grey">Crisp romaine lettuce, caesar dressing anchovies& croutons classic beef bacon bits/ grilled chicken/ grilled king prawn</p>
+      <hr>
+
+      <h1><b>Soup of the day</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$7/$6</span></h1>
+      <p class="w3-text-grey">mushroom/ broccoli</p>
+    
+     <h1><b>Deep fried Brie</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$7</span></h1>
+      <p class="w3-text-grey">Brie cheese bread crumbs,shallots & cranberry jam</p>
+    
+
+     <h1><b>king prawn cocktail</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$8/$14</span></h1>
+      <p class="w3-text-grey">Poached fresh king prawns, garden lettuce, marie rose sauce & lemon wedge/ add scallops</p>
+    
+
+     <h1><b>House Pate</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$6</span></h1>
+      <p class="w3-text-grey">House made chicken liver & mushroom pate, toast, cranberry jam</p>
+    
+
+     <h1><b>Garlic bread </b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5/$6/$8</span></h1>
+      <p class="w3-text-grey">House baked bread toasted/ fresh herb & garlic butter/ Mozzarella/ double cheese</p>
+    
+
+     <h1><b>Calamari</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$7</span></h1>
+      <p class="w3-text-grey">Hand battered deep fried squid, tartar sauce & lemon</p>
+    
+
+     <h1><b>Fresh tomato Bruschetta</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$7</span></h1>
+      <p class="w3-text-grey">chopped fresh tomatoes, onion olive & fresh basil on toasted garlic bread</p>
+    
+
+     <h1><b>Grilled mushrooms garlic prawns</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$12</span></h1>
+      <p class="w3-text-grey">grilled mushrooms filled with garlic prawns&mozzarella </p>
+    
+
+     <h1><b>Crispy potato skins</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$8</span></h1>
+      <p class="w3-text-grey">crispy house made potato skins filled with chilli beef & sour cream</p>
+     <h1><b>Herb Baked Pacific Scallops</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$12</span></h1>
+      <p class="w3-text-grey">Half Shell Pacific Scallops Baked with fresh herb butter mozzarella</p>
+      <h1><b>Blue Cheese Claypot</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$12/$12/$16/$18/$20</span></h1>
+      <p class="w3-text-grey">Claypot with creamy blue cheese sauce & toasted bread king prawns/Mussels/Oysters/Scallops/Special(all of the above)</p>
+      <h1><b>BBQ chicken wings</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$7/$8</span></h1>
+      <p class="w3-text-grey">Marinated chicken wings BBQ flamed grilled served with sour cream & BBQ sauce /topped with honey </p>
+      <h1><b>Sauteed mushrooms</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$8/$6</span></h1>
+      <p class="w3-text-grey">pan searred field mushrooms garlic butter/ spinach & cheese on garlic bread/ garlic herb butter on garlic bread </p>
+      <h1><b>Mini pot of mussels</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$12</span></h1>
+      <p class="w3-text-grey">Half shell new zealand mussels, fresh lemon cream, garlic sauce& toasted bread </p>
+    </div>
+
+
+    <div id="Drinks" class="w3-container menu w3-padding-32 w3-white">
+      <h1><b>Hot drinks</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+   
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">brewed coffee</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.00</span></h1>
+      <p class="w3-text-grey">Cappuccino</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.00</span></h1>
+      <p class="w3-text-grey">Latte</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">hazelnut latte</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.00</span></h1>
+      <p class="w3-text-grey">Espresso</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">double espresso</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$6.50</span></h1>
+      <p class="w3-text-grey">irish coffee</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$1.50</span></h1>
+      <p class="w3-text-grey">*extra shot*</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$2.50</span></h1>
+      <p class="w3-text-grey">english tea </p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$2.50</span></h1>
+      <p class="w3-text-grey">lipton tea</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$2.50</span></h1>
+      <p class="w3-text-grey">green tea</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.00</span></h1>
+      <p class="w3-text-grey">fresh mint tea</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.00</span></h1>
+      <p class="w3-text-grey">ginger tea</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.00</span></h1>
+      <p class="w3-text-grey">lemon tea</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$2.50</span></h1>
+      <p class="w3-text-grey">milo</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.50</span></h1>
+      <p class="w3-text-grey">hot cocoa cream</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$1.00</span></h1>
+      <p class="w3-text-grey">*add honey*</p>
+      <hr>
+      <h1><b>Cold drinks</b> <span class="w3-tag w3-grey w3-round"></span><span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h2><b>Iced tea</b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.50</span></h1>
+      <p class="w3-text-grey">ICED LEMON TEA</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.00</span></h1>
+      <p class="w3-text-grey">ICED GREEN TEA</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.50</span></h1>
+      <p class="w3-text-grey">ICED MINT TEA</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">ICED STRAWBERRY TEA</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">ICED MIXED BERRIES TEA</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.00</span></h1>
+      <p class="w3-text-grey">ICED MILO</p>
+      <hr>
+      <h2><b>FLOAT</b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">COKE FLOAT</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">ROOT BEER FLOAT</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">LEMONADE FLOAT</p>
+      <hr>
+      <h2><b>MILKSHAKE</b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$6.50</span></h1>
+      <p class="w3-text-grey">FRESH STRAWBERRY MILKSHAKES</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$6.00</span></h1>
+      <p class="w3-text-grey">BANANA MILKSHAKES</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.00</span></h1>
+      <p class="w3-text-grey">CHOCOLATE MILKSHAKES</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">MANGO MILKSHAKES</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.00</span></h1>
+      <p class="w3-text-grey">VANILA MILKSHAKES</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$6.00</span></h1>
+      <p class="w3-text-grey">AVOCADO MILKSHAKES</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$6.00</span></h1>
+      <p class="w3-text-grey">DOUBLE ESPRESSO MILKSHAKES</p>
+      <hr>
+      <h2><b>JAZZY MILKSHAKES</b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">OREO MILKSHAKES</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">CHOCOLATE CHIP MILKSHAKES</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">MILO MILKSHAKES</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$6.50</span></h1>
+      <p class="w3-text-grey">FERRERO ROCHER MILKSHAKES</p>
+      <hr>
+      <h1><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$6.50</span></h1>
+      <p class="w3-text-grey">KINDER BUENO MILKSHAKES</p>
+      <hr>
+      <h2><b>SMOOTHIES</b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">MANGO SMOOTHIES</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">STRAWBERRY SMOOTHIES</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">RASPBERRY SMOOTHIES</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">MIXED BERRIES SMOOTHIES</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">BANANA SMOOTHIES</p>
+      <hr>
+      <h2><b>REFRESHERS</b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.00</span></h1>
+      <p class="w3-text-grey">MINT FRESHIES</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">STRAWBERRY FRESHIES</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">MIXED BERRIES FRESHIES</p>
+      <hr>
+      <h2><b>ICED COFFEE</b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">ICED LATTE</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.50</span></h1>
+      <p class="w3-text-grey">ICED CAPPUCCINO</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$6.00</span></h1>
+      <p class="w3-text-grey">ICED HAZELNUT LATTE</p>
+      <hr>
+      <h2><b>FRESH JUICE</b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">ORANGE JUICE</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">APPLE JUICE</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">WATERMELON JUICE</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">CARROT JUICE</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">CUCUMBER JUICE</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$4.50</span></h1>
+      <p class="w3-text-grey">TOMATO & CELERY JUICE</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$5.00</span></h1>
+      <p class="w3-text-grey">WITHOUT ICE</p>
+      <hr>
+      <h2><b>SOFT DRINKS</b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.00</span></h1>
+      <p class="w3-text-grey">COKE</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.00</span></h1>
+      <p class="w3-text-grey">COKE LIGHT</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.00</span></h1>
+      <p class="w3-text-grey">SPRITE</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.00</span></h1>
+      <p class="w3-text-grey">GINGER ALE</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.00</span></h1>
+      <p class="w3-text-grey">ROOT BEER</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$3.00</span></h1>
+      <p class="w3-text-grey">SODA WATER</p>
+      <hr>
+      <h2><b>SQUASH</b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$2.00</span></h1>
+      <p class="w3-text-grey">ORANGE</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$2.00</span></h1>
+      <p class="w3-text-grey">BLACKCURRANT</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$1.00</span></h1>
+      <p class="w3-text-grey">MINERAL WATER 500ML</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$2.00</span></h1>
+      <p class="w3-text-grey">MINERAL WATER 1500ML</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$7.00</span></h1>
+      <p class="w3-text-grey">S.PELLEGRINO 750ML</p>
+      <hr>
+      <h2><b>DESSERT</b> <span class="w3-right w3-tag w3-dark-grey w3-round"></span></h1>
+      <p class="w3-text-grey"></p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$6.00</span></h1>
+      <p class="w3-text-grey">CHOCLATE LAVA CAKE</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$7.00</span></h1>
+      <p class="w3-text-grey">CREME BRULEE</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$7.00</span></h1>
+      <p class="w3-text-grey">LEMON ETON MESS</p>
+      <hr>
+      <h2><b></b> <span class="w3-right w3-tag w3-dark-grey w3-round">$6.00</span></h1>
+      <p class="w3-text-grey">CHEESECAKE(OF THE DAY)</p>
+      <hr>
+
+    </div><br>
+
+  </div>
+</div>
+
+<!-- About Container -->
+<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="about">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">About</h1>
+    <img src="jazz.jpg" style="width:100%" class="w3-margin-top w3-margin-bottom" alt="Restaurant">
+    <h1><b>Information</b></h1>
+    
+    <div class="w3-row">
+      <div class="w3-col s6">
+        <p>Opening Hours:</p>
+        <p>Monday-Sunday 11.30am-10pm </p>
+        <p>Closed Fridays 12pm-2pm</p>
+      </div>
+      <div class="w3-col s6">
+        <p>Location: </p>
+        <p>Regent Square Kiulap</p>
+        <p></p>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Contact</h1>
+    <p>Find us at some address at some place or call us at +673 721 8098</p>
+    <p><span class="w3-tag">FYI!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p>
+    <p class="w3-xxlarge"><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2020-11-16T20:00"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Phone Number" required name="Number"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
+      <p><button class="w3-button w3-light-grey w3-block" type="submit">SEND MESSAGE</button></p>
+    </form>
+
+    
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
+  <p>Jazz Bar & Grill <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">Brunei</a></p>
+</footer>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-red";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>
